@@ -1,0 +1,106 @@
+<mxfile host="65bd71144e">
+    <diagram id="mkD_HuAQXx3JOO7earT7" name="Page-1">
+        <mxGraphModel dx="951" dy="287" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="6" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="" style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.mscae.enterprise.app_generic" vertex="1" parent="1">
+                    <mxGeometry x="110" y="270" width="76.92" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Application Frontend" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="118.46000000000001" y="240" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="4" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Write to Kafka&lt;br&gt;(shopping order details)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="8">
+                    <mxGeometry x="-0.1218" y="4" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="" style="aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;fontColor=#4277BB;labelBackgroundColor=#ffffff;fontSize=12;spacingTop=3;image;image=img/lib/ibm/infrastructure/mobile_backend.svg;" vertex="1" parent="1">
+                    <mxGeometry x="118" y="360" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Shopping Order Backend" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="118.46000000000001" y="430" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7" target="11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Reads from Kafka&lt;br&gt;(shopping order details)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="12">
+                    <mxGeometry x="-0.1722" y="4" relative="1" as="geometry">
+                        <mxPoint x="-10" y="-9" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="7" target="17">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Reads from Kafka&lt;br&gt;(shopping transaction&amp;nbsp;&lt;br&gt;confirmation)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="19">
+                    <mxGeometry x="-0.2139" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="29" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="7">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="700" y="410" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="Kafka" style="whiteSpace=wrap;html=1;verticalAlign=top;shadow=0;dashed=0;labelBackgroundColor=default;spacingTop=3;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="350" width="320" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="11" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Writes to Kafka&lt;br&gt;(shopping transaction&lt;br&gt;&amp;nbsp;confirmation)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="14">
+                    <mxGeometry x="0.1584" relative="1" as="geometry">
+                        <mxPoint x="-70" y="11" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="Shopping &lt;br&gt;Transaction" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="480" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="17" target="23">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="550" y="590" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="Send Data to BigQuery" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="21">
+                    <mxGeometry x="-0.1711" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="Analytics Backend&lt;br&gt;(Best Sellers Products per Country)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="490" y="490" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="23" target="24">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="Create&lt;br&gt;&amp;nbsp;Dashboard" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="25">
+                    <mxGeometry x="-0.1214" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="BigQuery" style="sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;spacingTop=-6;fontSize=11;fontStyle=1;fontColor=#999999;shape=image;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnY9Imh0dHBzOi8vdmVjdGEuaW8vbmFubyIgd2lkdGg9IjIwLjAwMTA0NTIyNzA1MDc4IiBoZWlnaHQ9IjIwLjAwMTA0NTIyNzA1MDc4IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHZpZXdCb3g9IjAgMCAyMC4wMDEwNDUyMjcwNTA3OCAyMC4wMDEwNDUyMjcwNTA3OCI+JiN4YTsJPHN0eWxlIHR5cGU9InRleHQvY3NzIj4mI3hhOwkuc3Qwe2ZpbGw6I2FlY2JmYTt9JiN4YTsJLnN0MXtmaWxsOiM2NjlkZjY7fSYjeGE7CS5zdDJ7ZmlsbDojNDI4NWY0O30mI3hhOwk8L3N0eWxlPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00LjczIDguODN2Mi42M2E0LjkxIDQuOTEgMCAwIDAgMS43MSAxLjc0VjguODN6Ii8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTcuODkgNi40MXY3LjUzQTcuNjIgNy42MiAwIDAgMCA5IDE0YTggOCAwIDAgMCAxIDBWNi40MXoiLz4mI3hhOwk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTEuNjQgOS44NnYzLjI5YTUgNSAwIDAgMCAxLjctMS44MlY5Ljg2eiIvPiYjeGE7CTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xNS43NCAxNC4zMmwtMS40MiAxLjQyYS40Mi40MiAwIDAgMCAwIC42bDMuNTQgMy41NGEuNDIuNDIgMCAwIDAgLjU5IDBsMS40My0xLjQzYS40Mi40MiAwIDAgMCAwLS41OWwtMy41NC0zLjU0YS40Mi40MiAwIDAgMC0uNiAwIi8+JiN4YTsJPHBhdGggY2xhc3M9InN0MSIgZD0iTTkgMGE5IDkgMCAxIDAgMCAxOEE5IDkgMCAxIDAgOSAwbTAgMTUuNjlhNi42OCA2LjY4IDAgMCAxIC4wMDctMTMuMzYgNi42OCA2LjY4IDAgMCAxIDQuNzI3IDExLjQwM0E2LjY4IDYuNjggMCAwIDEgOSAxNS42OSIvPiYjeGE7PC9zdmc+;" vertex="1" parent="1">
+                    <mxGeometry x="529" y="590" width="42" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Google&#10;Data Studio" style="sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;spacingTop=-6;fontSize=11;fontStyle=1;fontColor=#999999;shape=image;aspect=fixed;imageAspect=0;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGlkPSJzdmcxMDczNDEiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDI3NS45ODY2OSAyNTIuNDI5NTMiIGhlaWdodD0iMjUyLjQyOTUzbW0iIHdpZHRoPSIyNzUuOTg2NjltbSI+JiN4YTsgICYjeGE7ICA8ZGVmcyBpZD0iZGVmczEwNzMzOCIvPiYjeGE7ICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMi40NTE1MzMsLTIwLjk0NjAxKSIgaWQ9ImxheWVyMSI+JiN4YTsgICAgPHBhdGggZD0ibSAxMDEuNjgwMDksMjczLjM3NTU0IGMgLTE2LjQ1MjEyLDAgLTMwLjkxMzQyMiwtMTQuMTc3MzIgLTMwLjkxMzQyMiwtMzQuMjM1OSAwLC0xOS4xNzQ5OSAxNS4xNTE1MjIsLTMzLjY1ODA3IDMzLjUxMzYxMiwtMzMuNjU4MDcgaCAxMDQuODc0NTEgdiA2Ny44OTM5NyB6IE0gLTEuNTM4MTA0NiwxODEuODUzMzYgYyAtMTYuNDUyMTI2NCwwIC0zMC45MTM0Mjg0LC0xNC4xNzczMiAtMzAuOTEzNDI4NCwtMzQuMjM1ODkgMCwtMTkuMTc1IDE1LjE1MTUxOSwtMzMuNjU4MDggMzMuNTEzNjE4NCwtMzMuNjU4MDggSCAxMDUuOTM2NiB2IDY3Ljg5Mzk3IHogTSAxMDEuNjgwMSw4OC44Mzk5OCBjIC0xNi40NTIxMzEsMCAtMzAuOTEzNDMzLC0xNC4xNzczMTcgLTMwLjkxMzQzMywtMzQuMjM1ODk1IDAsLTE5LjE3NDk5NCAxNS4xNTE1MTksLTMzLjY1ODA3NSAzMy41MTM2MjMsLTMzLjY1ODA3NSBIIDIwOS4xNTQ4IHYgNjcuODkzOTcgeiIgc3R5bGU9Im9wYWNpdHk6MTtmaWxsOiM3NjllZjU7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuMjY0NTgzcHg7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW9wYWNpdHk6MSIgaWQ9InBhdGgxMDc2MTAtMyIvPiYjeGE7ICAgIDxwYXRoIGQ9Im0gMjQzLjUzNTE1LDIzOS40Mjg1NSBjIDAsMTguOTg3NzUgLTE1LjM5MjYxLDMzLjk0Njk5IC0zNC4zODAzNiwzMy45NDY5OSAtMTguOTg3NzQsMCAtMzQuMzgwMzQsLTE0Ljk1OTI0IC0zNC4zODAzNCwtMzMuOTQ2OTkgMCwtMTguOTg3NzQgMTUuMzkyNiwtMzMuOTQ2OTggMzQuMzgwMzQsLTMzLjk0Njk4IDE4Ljk4Nzc1LC0xZS01IDM0LjM4MDM2LDE0Ljk1OTI0IDM0LjM4MDM2LDMzLjk0Njk4IHogTSAxNDAuMzE2OTYsMTQ3LjkwNjM4IGMgMCwxOC45ODc3NCAtMTUuMzkyNjEsMzMuOTQ2OTkgLTM0LjM4MDM2LDMzLjk0Njk4IC0xOC45ODc3NDUsMCAtMzQuMzgwMzU1LC0xNC45NTkyNCAtMzQuMzgwMzU1LC0zMy45NDY5OCAwLC0xOC45ODc3NSAxNS4zOTI2MSwtMzMuOTQ2OTkgMzQuMzgwMzU1LC0zMy45NDY5OSAxOC45ODc3NSwwIDM0LjM4MDM2LDE0Ljk1OTI0IDM0LjM4MDM2LDMzLjk0Njk5IHogTSAyNDMuNTM1MTUsNTQuODkyOTk0IGMgMCwxOC45ODc3NDcgLTE1LjM5MjYxLDMzLjk0Njk5IC0zNC4zODAzNiwzMy45NDY5ODYgLTE4Ljk4Nzc0LC0xMGUtNyAtMzQuMzgwMzQsLTE0Ljk1OTI0MyAtMzQuMzgwMzQsLTMzLjk0Njk4NiAwLC0xOC45ODc3NDMgMTUuMzkyNiwtMzMuOTQ2OTgzIDM0LjM4MDM0LC0zMy45NDY5ODQgMTguOTg3NzUsLTVlLTYgMzQuMzgwMzYsMTQuOTU5MjM3IDM0LjM4MDM2LDMzLjk0Njk4NCB6IiBzdHlsZT0ib3BhY2l0eToxO2ZpbGw6IzQwNzVlNjtmaWxsLW9wYWNpdHk6MTtzdHJva2Utd2lkdGg6MjE7c3Ryb2tlLWxpbmVqb2luOnJvdW5kIiBpZD0icGF0aDEwNzYzNC00Ii8+JiN4YTsgIDwvZz4mI3hhOzwvc3ZnPg==;" vertex="1" parent="1">
+                    <mxGeometry x="410" y="593.81" width="38" height="34.38" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="Reads from Kafka&lt;br&gt;(shopping transaction&amp;nbsp;&lt;br&gt;confirmation)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="710" y="430" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="30">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="710" y="450" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" value="Email Backend&lt;br&gt;(Send email confirmation to user)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="510" width="120" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
