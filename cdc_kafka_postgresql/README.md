@@ -1,1 +1,2 @@
-# cdc_kafka_postgresql
+Change Data Capture (CDC) is a technique used to track and capture changes made to a database. This technology has become increasingly important in modern data-driven applications that require real-time data processing and analytics. In this article, we will explore the use of CDC in moving data from a relational database such as PostgreSQL to a cloud-based storage system like Amazon S3 using Debezium, Kafka, and Python. We will go through the steps to set up a CDC pipeline that can stream data from PostgreSQL to S3 in near real-time. The article will be useful for data engineers, data architects, and developers who are looking to integrate a relational database with cloud-based data storage systems.
+
