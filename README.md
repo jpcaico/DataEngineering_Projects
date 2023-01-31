@@ -2,4 +2,8 @@ This repo contains my personal Data Engineering Projects and portfolio. Projects
 
 - [Change Data Capture with Kafka, Debezium PostgreSQL and Python](https://medium.com/@joaopaulonobregaalvim/streaming-data-from-postgresql-to-s3-using-debezium-kafka-and-python-16c6cdd6dc1e) : cdc_kafk_postgresql
 
+- [Event Driven Shopping App with Kafka, Python and GCP](https://medium.com/@joaopaulonobregaalvim/event-driven-shopping-app-with-python-kafka-bigquery-e3194edbc920)
+
 - Ingesting data from REST API to PostgreSQL : rest-api-to-postgresql
+
+
