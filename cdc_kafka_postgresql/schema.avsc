@@ -1,0 +1,18 @@
+{
+    "type": "record",
+    "name": "ingredients",
+    "fields": [
+        {
+            "name": "ingredient_id",
+            "type": "int"
+        },
+        {
+            "name": "ingredient_name",
+            "type": "string"
+        },
+        {
+            "name": "ingredient_price",
+            "type": "int"
+        }
+    ]
+}

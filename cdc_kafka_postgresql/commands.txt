@@ -1,0 +1,74 @@
+#remove all containers to avoid issues
+docker rm -f $(docker ps -a -q)
+
+# run the docker-compose file
+docker-compose up -d
+
+
+#log into postgresql to test the connection
+pgcli -h localhost -p 5432 -u admin -d food
+# or pgadmin
+
+
+CREATE TABLE ingredients (
+  ingredient_id INT NOT NULL, 
+  ingredient_name VARCHAR(30) NOT NULL,
+  ingredient_price INT NOT NULL,
+  PRIMARY KEY (ingredient_id),  
+  UNIQUE (ingredient_name)
+);
+
+# change replica identity from table, necessary for dbezium to work correctly
+ALTER TABLE ingredients REPLICA IDENTITY FULL;
+
+# set up debezium connector
+# set up the debezium.json file with your database configuration
+ curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" 127.0.0.1:8083/connectors/ --data "@debezium.json"
+
+
+#at this point we have the db set up with some data, and the debezium connector listening to that table
+
+#testing
+#lets run confluent-kafka image on the same network we have, passing the kafka port we have locally,
+# the schema registry and the table
+# this is run kafkacat command on the table schema so that whenever there is some data in that topic we can see it
+
+docker run --tty \
+--network cdc_kafka_postgresql_default \
+confluentinc/cp-kafkacat \
+kafkacat -b kafka:9092 -C \
+-s key=s -s value=avro \
+-r http://schema-registry:8085 \
+-t postgres.public.ingredients
+
+docker run --tty \
+--network cdc_kafka_postgresql_default \
+confluentinc/cp-kafkacat \
+kafkacat -b kafka:9092 -C \
+-s key=s -s value=avro \
+-r http://schema-registry:8085 \
+-t postgres.public.recipes
+
+# lets insert some data into the db
+INSERT INTO ingredients
+    (ingredient_id, ingredient_name, ingredient_price)
+VALUES 
+    (1, "Beef", 5),
+    (2, "Lettuce", 1),
+    (3, "Tomatoes", 2),
+    (4, "Taco Shell", 2),
+    (5, "Cheese", 3),
+    (6, "Milk", 1),
+    (7, "Bread", 2);
+
+
+
+Check if the kafka broker is running: To make sure that the Kafka broker is running, you can use the following command: docker ps. This will list all the running containers. If the Kafka broker is not running, you can start it using the command docker-compose up.
+
+Check if the broker address is correct: In the python code, you have specified the broker address as "kafka:9092". This should match the hostname or IP address of the Kafka broker. If the hostname or IP address is different, you should update it in the code.
+
+Check if the topic exists: The code is listening to the topic "topic_food". This topic should exist in Kafka. You can use the following command to check if the topic exists: docker exec -ti kafka kafka-topics --list --zookeeper zookeeper.
+
+Check if the topic is being produced to: The Debezium connector is supposed to produce to the topic "topic_food". You can check if the Debezium connector is producing to the topic by using the following command: docker logs -f <debezium-connector-container-name>.
+
+Check the firewall rules: If all the above points are correct, there could be firewall rules that are blocking the connection to the broker. You should check the firewall rules and make sure that the connection to the broker is allowed.

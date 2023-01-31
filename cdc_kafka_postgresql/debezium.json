@@ -1,0 +1,16 @@
+{
+    "name": "postgresql-connector",
+    "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "plugin.name": "pgoutput",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "admin",
+    "database.password": "root",
+    "database.dbname": "food",
+    "database.server.name": "postgres",
+    "table.include.list": "public.recipes,public.ingredients",
+    "table.whitelist": "public.recipes,public.ingredients",
+    "topic.prefix": "topic_food"
+    }
+    }
