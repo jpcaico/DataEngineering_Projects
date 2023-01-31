@@ -1,4 +1,4 @@
-This repo contains my personal Data Engineering Projects and portfolio.
+This repo contains my personal Data Engineering Projects and portfolio. Projects that contain an hyperlink above will redirect you to the project explanation/blog post/tutorial.
 
 - [Change Data Capture with Kafka, Debezium PostgreSQL and Python](https://medium.com/@joaopaulonobregaalvim/streaming-data-from-postgresql-to-s3-using-debezium-kafka-and-python-16c6cdd6dc1e) : cdc_kafk_postgresql
 
