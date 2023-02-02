@@ -1,0 +1,14 @@
+# Use an existing image as a base
+FROM ubuntu:18.04
+
+# Add the necessary repositories
+RUN apt-get update && \
+    apt-get install -y software-properties-common && \
+    add-apt-repository ppa:webupd8team/java
+
+# Update the package lists and install Oracle Java 8
+RUN apt-get update && \
+    apt-get install -y oracle-java8-installer
+
+# Set Java 8 as the default Java version
+RUN apt-get install -y oracle-java8-set-default

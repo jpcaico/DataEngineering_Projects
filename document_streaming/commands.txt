@@ -1,0 +1,72 @@
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+
+
+# API
+# navigate to app folder
+#run 
+uvicorn main:app --reload
+
+
+# Testing the api in postman
+import the postman_collection.json to import the tests
+
+
+docker-compose -f docker-compose-kafka.yml up
+#creating topic
+
+# get into the kafka container
+cd /opt/bitnami/kafka/bin
+
+# list topics
+./kafka-topics.sh --list --bootstrap-server localhost:9092
+
+#create topic
+./kafka-topics.sh --create --topic ingestion-topic --bootstrap-server localhost:9092
+
+#local consumer
+./kafka-console-consumer.sh --topic ingestion-topic --bootstrap-server localhost:9092
+
+# add api to network
+#build dockerfile
+docker build -t api-ingest .
+
+#check network from the kafka dockercompose
+docker network ls
+
+in our case it is
+document_streaming_default 
+
+# run the api container
+docker run --rm --network document_streaming_default --name my-api-ingest -p 80:80 api-ingest
+
+
+# get into the kafka container
+cd /opt/bitnami/kafka/bin
+
+#local consumer
+./kafka-console-consumer.sh --topic ingestion-topic --bootstrap-server localhost:9092
+
+## adding spark
+
+docker-compose -f docker-compose-kafka-spark.yml up
+
+#access spark in localhost:8888
+the token is in the spark container logs
+
+#log into bitnami/kafka
+cd /opt/bitnami/kafka/bin/
+
+#create topic so spark streaming can write to it
+./kafka-topics.sh --create --topic ingestion-topic --bootstrap-server localhost:9092
+./kafka-topics.sh --create --topic spark-output --bootstrap-server localhost:9092
+
+#create local consumer 
+./kafka-console-consumer.sh --topic spark-output --bootstrap-server localhost:9092
+
+#adding mongo db
+docker-compose -f docker-compose-kafka-spark-mongo.yml up
+
+#create database named docstreaming (using the ui localhost)
+# create a collection named invoices inside the database
+
