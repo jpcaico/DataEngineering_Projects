@@ -1,0 +1,38 @@
+# Goal
+- scheduled batch-driven data process to a real-time event-driven process
+- modernizing a workflow that was created 15 years ago using .NET and PostgreSQL
+- make the data more “reactive.”
+- set up an alerting system informing external and internal customers of changes that exceed arbitrary rules
+- Systems tracks real-time stock prices, and they also want real-time status updates as the data goes through permutations. When stock prices change, they need to be gathering information about it to identify why (or how) the price changed.
+
+services the team can add without requiring rewrites or code changes:
+- A quality-control feedback loop
+- External API access to status updates
+- More logging destinations
+- A service that augments and enhances current data
+- A machine learning service to identify trends
+
+# Techniques
+Switching from a legacy system to a more modern architecture
+Reading an architectural diagram of an event-driven system
+Basic concept of event-driven architecture (Kappa or Lambda architecture)
+
+# install poetry
+brew install poetry
+
+# test poetry, create a new poetry project
+poetry new sample-project
+cd sample-project
+
+# install requests
+poetry add requests
+
+# make a simple http call and print out the manning.com website in a console window
+nano main.py
+
+ import requests
+  r = requests.get('https://manning.com')
+  print(r)
+
+# test it
+poetry run python main.py

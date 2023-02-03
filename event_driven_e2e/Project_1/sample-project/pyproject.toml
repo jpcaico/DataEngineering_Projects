@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "sample-project"
+version = "0.1.0"
+description = ""
+authors = ["Joao Paulo Alvim <joaopaulonobregaalvim@gmail.com>"]
+readme = "README.md"
+packages = [{include = "sample_project"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.28.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

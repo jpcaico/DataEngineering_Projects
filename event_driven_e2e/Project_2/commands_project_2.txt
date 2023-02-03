@@ -1,0 +1,27 @@
+# create a new poetry project
+poetry new project2
+cd project2
+
+# run docker-compose file
+docker rm -f $(docker ps -a -q)
+docker-compose up -d
+
+# run faust
+faust -A kafka_faust worker -l info
+
+# get into kafka container
+docker exec -it fa24052251d1 bash
+cd /opt/bitnami/kafka/bin/
+
+#create topic
+./kafka-topics.sh --create --topic greetings --bootstrap-server localhost:9092
+
+# execute consumer
+./kafka-console-consumer.sh \
+    --bootstrap-server localhost:9092 \
+    --topic greetings \
+    --from-beginning
+
+
+# send messages to topic
+faust -A kafka_faust send greetings "Hello Kafka topic"
