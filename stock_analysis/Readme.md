@@ -53,3 +53,50 @@ with
 advertised.listener=PLAINTEXT://<your_public_ipv4_address>:9092
 advertised.listeners=PLAINTEXT://52.3.254.234:9092
 ```
+
+# 6. Allowing Requests from Local Machine to EC2 Instance
+1. On the EC2 console, click on Security
+2. Click on Security Groups
+3. Edit inbound rules
+4. Add "All Traffic" and "Anywhere IPv4" (or "My IP")
+5. Save it (Note: this is not the best practice)
+
+# 7. Creating Topics and Starting Producers and Consumers
+1. Open a new terminal and connect to the EC2 machine again
+2. Create the topic
+```
+bin/kafka-topics.sh --create --topic demo_test --bootstrap-server {Put the Public IP of your EC2 Instance:9092} --replication-factor 1 --partitions 1
+bin/kafka-topics.sh --create --topic demo_test --bootstrap-server 52.3.254.234:9092 --replication-factor 1 --partitions 1
+```
+3. Start the producer
+```
+bin/kafka-console-producer.sh --topic demo_test --bootstrap-server {Put the Public IP of your EC2 Instance:9092}
+bin/kafka-console-producer.sh --topic demo_test --bootstrap-server 52.3.254.234:9092
+```
+4. Open new terminal
+5 .Start the consumer
+```
+bin/kafka-console-consumer.sh --topic demo_test --bootstrap-server {Put the Public IP of your EC2 Instance:9092}
+bin/kafka-console-consumer.sh --topic demo_test --bootstrap-server 52.3.254.234:9092
+```
+
+# 8. Creating producer in python
+Follow files `KafkaProducer.py` and `KafkaConsumer.py`
+
+# 9. Create a s3 bucket
+My example runs on `stock-analysis-jpcaico`. You can use the configuration you want for the bucket, I just used default.
+
+# 10. Install s3fs package
+`python -m pip install s3fs`
+
+# 11. Generate User Access Keys
+1.  Go to IAM and create a new user and add access key
+2. Download aws cli
+3. config environment running int terminal
+`aws configure`
+4. Enter your  access key id and secret and region
+
+# 12. Create Crawler
+Create crawler in console, point it to the bucket where data will be stored.
+
+Now data is being piped to Athena, dont forget to add a bucket for athena to save files
