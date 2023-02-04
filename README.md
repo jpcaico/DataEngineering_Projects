@@ -6,6 +6,8 @@ This repo contains my personal Data Engineering Projects and portfolio. Projects
 
 - [Data Ingestion in chunks to BigQuery and schema mismatch handling](https://medium.com/@joaopaulonobregaalvim/data-ingestion-in-chunks-to-bigquery-and-schema-mismatch-handling-using-python-eb02b2aecbe9)
 
+- [Stock Analysis using Python, s3, kafka in EC2, Glue and Athena](https://github.com/jpcaico/DataEngineering_Projects/tree/main/stock_analysis) : stock_analysis
+
 - Ingesting data from REST API to PostgreSQL : rest-api-to-postgresql
 
 
