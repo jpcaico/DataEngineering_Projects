@@ -1,0 +1,106 @@
+1. Go to EC2
+2. Click on launch an instance
+3. keep default options and free tiers
+4. create key pair to connect to local machine
+(RSA and .pem file)
+5. put the .pem file on your projects folder
+6. launch instance
+
+7. after instance is running, click on instance id, connect
+8. copy the ssh command
+9. go to the project folder where you have the pem file and run the command
+
+chmod 400 kafka-stock-analysis.pem
+ssh -i "kafka-stock-analysis.pem" ec2-user@ec2-52-3-254-234.compute-1.amazonaws.com
+
+10. installing apache kafka
+
+wget https://downloads.apache.org/kafka/3.3.2/kafka_2.12-3.3.2.tgz
+
+11. uncompress file
+tar -xvf kafka_2.12-3.3.2.tgz
+
+12. instal jvm
+sudo yum install java-1.8.0-openjdk
+java -version
+
+13. start zookeper
+cd kafka_2.12-3.3.2/
+
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+14. open another terminal and connect to instance again
+15. start kafka server
+
+16. increase memory for the kafka server
+export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"
+ 17. start kafka server
+ bin/kafka-server-start.sh config/server.properties
+
+You can not access your private Ip DNS (ec2 instance) from your local computer unless you are in the network
+We need to change the config to use the public ipv4 address so we can connect to the instance locally
+
+So, close the running terminals
+
+Lets change server.properties file so it can run in public ipv4
+sudo nano config/server.properties
+
+replace the line
+#advertised.listeners=PLAINTEXT://your.host.name:9092
+
+to
+
+advertised.listener=PLAINTEXT://<your_public_ipv4_address>:9092
+advertised.listeners=PLAINTEXT://52.3.254.234:9092
+
+18. start zookeeper and kafka-server again
+
+we need to allow the request from our machine to the aws ec2 instance
+19. on the ec2 console, click on security
+20. click on security groups
+21. edit inbounds rules
+
+add All Traffic and Anywhere ipv4 (or My Ip)
+22. Save it
+
+(That's not the best practice)
+
+23. Open a new terminal and connect again for the ec2 machine
+
+24. Create the topic
+bin/kafka-topics.sh --create --topic demo_test --bootstrap-server {Put the Public IP of your EC2 Instance:9092} --replication-factor 1 --partitions 1
+bin/kafka-topics.sh --create --topic demo_test --bootstrap-server 52.3.254.234:9092 --replication-factor 1 --partitions 1
+
+25.Start the producer
+bin/kafka-console-producer.sh --topic demo_test --bootstrap-server {Put the Public IP of your EC2 Instance:9092}
+bin/kafka-console-producer.sh --topic demo_test --bootstrap-server 52.3.254.234:9092
+
+26. Open new terminal
+26.Start the consumer
+bin/kafka-console-consumer.sh --topic demo_test --bootstrap-server {Put the Public IP of your EC2 Instance:9092}
+bin/kafka-console-consumer.sh --topic demo_test --bootstrap-server 52.3.254.234:9092
+
+# creating producer in python
+files KafkaProducer.py and KafkaConsumer.py
+
+
+27. create a s3 bucket
+stock-analysis-jpcaico
+
+28. install s3fs package
+python -m pip install s3fs
+
+29. Go to IAM and create a new user and add access key
+
+30. download aws cli
+
+31. config environtm
+aws configure
+
+paste access key id and secret
+define region
+
+32. create crawler
+create and run crawler
+
+Now data is being piped to athena, dont forget to add a bucket for athena to save files
