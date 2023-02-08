@@ -8,6 +8,8 @@ This repo contains my personal Data Engineering Projects and portfolio. Projects
 
 - [Stock Analysis using Python, s3, kafka in EC2, Glue and Athena](https://github.com/jpcaico/DataEngineering_Projects/tree/main/stock_analysis) : stock_analysis
 
+- [Streaming Fake Log Data to BigQuery using Google Cloud Data Flow and Pub/Sub](https://medium.com/@joaopaulonobregaalvim/streaming-fake-log-data-to-bigquery-using-google-cloud-data-flow-and-pub-sub-74288b297df2) : [log_analysis](https://github.com/jpcaico/GCP_Miscellaneous/tree/main/beam-dataflow/log_analysis)
+
 - Ingesting data from REST API to PostgreSQL : rest-api-to-postgresql
 
 
